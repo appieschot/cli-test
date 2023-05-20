@@ -1,4 +1,5 @@
-m365 login --authType identity --userName 07a6497a-14a5-446d-bb71-03796372117c
+m365 cli config set --key showSpinner --value $false
+m365 login --authType identity --userName $env:M365_USER
 
 $sites = m365 spo site classic list --t "REDIRECTSITE#0" --output json | ConvertFrom-Json
 
