@@ -2,7 +2,7 @@ m365 setup --scripting --output none
 
 m365 login --authType identity --userName $env:M365_USER | Out-Null
 
-$sites = m365 spo site classic list --t "REDIRECTSITE#0" --output json | ConvertFrom-Json
+$sites = m365 spo site list --webTemplate "REDIRECTSITE#0" --output json | ConvertFrom-Json
 
 $sites | ForEach-Object {
   Write-Host -f Green "Processing redirect site: " $_.Url
